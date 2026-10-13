@@ -30,11 +30,11 @@ jobs:
 
       - name: SonarQube code analysis
         env:
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_REPO_URL: ${{ secrets.SONAR_REPO_URL }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: >
           mvn --batch-mode org.sonarsource.scanner.maven:sonar-maven-plugin:5.3.0.6276:sonar
-          -Dsonar.host.url="$SONAR_HOST_URL"
+          -Dsonar.host.url="$SONAR_REPO_URL"
           -Dsonar.token="$SONAR_TOKEN"
 
       - name: Upload WAR artifact
